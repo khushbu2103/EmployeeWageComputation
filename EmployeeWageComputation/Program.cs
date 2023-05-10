@@ -1,4 +1,6 @@
-﻿namespace EmployeeWageComputation
+﻿using System.Diagnostics;
+
+namespace EmployeeWageComputation
 {
     internal class Program
     {
@@ -12,19 +14,21 @@
             Console.WriteLine("Welcome to EmployeeWageComputation");
             Random random = new Random();
             int randomInput = random.Next(0, 3);
-            if (FULL_TIME == randomInput)
+            switch(randomInput)
             {
-                empHrs = 8;
-                Console.WriteLine("Full time employee is present");
-            }
-            else if (PART_TIME == randomInput)
-            {
-                empHrs = 4;
-                Console.WriteLine("Part time employee is present");
-            }
-            else
-            {
-                Console.WriteLine("Employee is absent");
+                case FULL_TIME:
+                    //code block;
+                    empHrs = 8;
+                    Console.WriteLine("Full time employee is present");
+                    break;
+                case PART_TIME:
+                    //code block;
+                    empHrs = 4;
+                    Console.WriteLine("Part time employee is present");
+                    break;
+                default:
+                    //code block;
+                    break;         
             }
             empWage = EMP_RATE_PER_HR * empHrs;
             Console.WriteLine("EmployeeWage:{0}",empWage);
