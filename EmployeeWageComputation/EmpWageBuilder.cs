@@ -5,30 +5,41 @@ namespace EmployeeWageComputation
     internal class EmpWageBuilder
     {
         //int[] arr = new int[5];
-        public CompanyDetails[] companies;
+        //public CompanyDetails[] companies;
+        List<CompanyDetails> listOfCompanies;
         int noOfCompanies = 0;
 
         public EmpWageBuilder()
         {
-            companies = new CompanyDetails[5];
+           // companies = new CompanyDetails[5];
+           listOfCompanies = new List<CompanyDetails>();
         }
 
         public void AddCompanyDetails(string company, int maxWorkingDay, int maxWorkingHrs, int empRatePerHr)
         {
             CompanyDetails comp = new CompanyDetails(company, maxWorkingDay, maxWorkingHrs, empRatePerHr);
-            companies[noOfCompanies] = comp;
-            noOfCompanies++;
+            //companies[noOfCompanies] = comp;
+            listOfCompanies.Add(comp);
+           // listOfCompanies[noOfCompanies] = comp;
+            //noOfCompanies++;
+
         }
         public void IterateOverCompanies()
         {
-            for (int i = 0; i < companies.Length; i++)
+            //for (int i = 0; i < listOfCompanies.Count; i++)
+            //{
+            //    if (listOfCompanies[i] != null)
+            //    {
+            //        int totalWage = CalculateWage(listOfCompanies[i]);
+            //        listOfCompanies[i].SetTotalWage(totalWage);
+            //        Console.WriteLine(listOfCompanies[i]);
+            //    }
+            //}
+            foreach(CompanyDetails company in listOfCompanies)
             {
-                if (companies[i] != null)
-                {
-                    int totalWage = CalculateWage(companies[i]);
-                    companies[i].SetTotalWage(totalWage);
-                    Console.WriteLine(companies[i]);
-                }
+                int totalWage = CalculateWage(company);
+                company.SetTotalWage(totalWage);
+                Console.WriteLine(company);
             }
         }
             public int CalculateWage(CompanyDetails obj)
