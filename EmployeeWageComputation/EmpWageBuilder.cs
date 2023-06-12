@@ -2,19 +2,20 @@
 
 namespace EmployeeWageComputation
 {
-    internal class Program
+    internal class EmpWageBuilder
     {
-        static void Main(string[] args)
+        public string company;
+        public int maxWorkingDay, maxWorkingHrs, empRatePerHr;
+
+        public EmpWageBuilder(string company, int maxWorkingDay, int maxWorkingHrs, int empRatePerHr)
         {
-            Console.WriteLine("Welcome to EmployeeWageComputation");
-            CalculateWage("Delloit" , 24, 120, 40);
-            CalculateWage("Microsoft", 34, 100, 46);
-            CalculateWage("Bridgelabz", 20, 130, 35);
-            Console.ReadLine();
+            this.company = company;
+            this.maxWorkingDay = maxWorkingDay;
+            this.maxWorkingHrs = maxWorkingHrs;
+            this.empRatePerHr = empRatePerHr;
         }
 
-
-            public static void CalculateWage(string company, int maxWorkingDay, int maxWorkingHrs, int empRatePerHr)
+            public void CalculateWage()
             {
             const int FULL_TIME = 1;
             const int PART_TIME = 2;
@@ -55,7 +56,17 @@ namespace EmployeeWageComputation
                 
             }
 
-        
-        
+        static void Main(string[] args)
+        {
+            Console.WriteLine("Welcome to EmployeeWageComputation");
+            EmpWageBuilder deloitte = new EmpWageBuilder("Deloitte", 24, 120, 40);
+            deloitte.CalculateWage();
+            EmpWageBuilder Microsoft = new EmpWageBuilder("Microsoft", 34, 100, 46);
+            deloitte.CalculateWage();
+            EmpWageBuilder Bridgelabz = new EmpWageBuilder("Bridgelabz", 20, 130, 35);
+            deloitte.CalculateWage();
+            Console.ReadLine();
+        }
+
     }
 } 
