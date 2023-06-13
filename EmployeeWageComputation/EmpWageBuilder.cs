@@ -24,6 +24,18 @@ namespace EmployeeWageComputation
             //noOfCompanies++;
 
         }
+
+        public int GetTotalWageByCompany(string companyName)
+        {
+            foreach (CompanyDetails company in listOfCompanies)
+            {
+                if (company.company == companyName)
+                {
+                    return company.totalWage;
+                }
+            }
+            return -1; // Return -1 if the company is not found
+        }
         public void IterateOverCompanies()
         {
             //for (int i = 0; i < listOfCompanies.Count; i++)
