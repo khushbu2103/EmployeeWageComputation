@@ -39,6 +39,7 @@ namespace EmployeeWageComputation
             {
                 int totalWage = CalculateWage(company);
                 company.SetTotalWage(totalWage);
+                company.PrintDailyWages();
                 Console.WriteLine(company);
             }
         }
@@ -74,12 +75,15 @@ namespace EmployeeWageComputation
                             break;
                     }
                     empWage = obj.empRatePerHr * empHrs;
+                    obj.dailyWages.Add(empWage);
                     totalWage += empWage; //totalWage=totalWage+emoWage
                     totalHrs += empHrs;
                     //Console.WriteLine("EmployeeWage per day{0}:{1}", day, empWage);
                     day++;
                 }
-                //Console.WriteLine("TotalWage {0} for {1} of {2} days and totalhrs:{3}", totalWage, obj.company, (day-1), totalHrs);
+            Console.WriteLine("Compamy: {0}, Total Wage: {1}", obj.company, totalWage);
+            
+            //Console.WriteLine("TotalWage {0} for {1} of {2} days and totalhrs:{3}", totalWage, obj.company, (day-1), totalHrs);
             return totalWage;
             }
 
